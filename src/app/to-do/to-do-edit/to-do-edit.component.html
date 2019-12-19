@@ -1,0 +1,31 @@
+
+<div class="todo_edit_wrapper">
+
+  <form class="edit_form" (ngSubmit)="onSubmit(toDoForm)"  #toDoForm="ngForm">
+    <div class="item_icons">
+        <button type="button" matTooltip="重要" mat-icon-button ><mat-icon (click)="setTag($event ,'important')" [ngClass]="{red: toDoItem.important}" >{{toDoItem.important_icon}}</mat-icon></button>
+        <button type="button" matTooltip="優先"mat-icon-button ><mat-icon (click)="setTag($event ,'star')" [ngClass]="{yellow: toDoItem.stared}" >{{toDoItem.stared_icon}}</mat-icon></button>
+        <button type="button" matTooltip="完成" mat-icon-button ><mat-icon (click)="setTag($event ,'done')" [ngClass]="{blue: toDoItem.done}" >{{toDoItem.done_icon}}</mat-icon></button>
+    </div>
+    <div class="edit_tags">
+        <mat-checkbox [(ngModel)]="toDoItem.frontend" name="frontend" #frontend="ngModel">Frontend</mat-checkbox>
+        <mat-checkbox [(ngModel)]="toDoItem.backend" name="backend" #backend="ngModel">Backend</mat-checkbox>
+        <mat-checkbox [(ngModel)]="toDoItem.issue" name="issue" #issue="ngModel">Issue</mat-checkbox>
+    </div>
+    <div>
+      <mat-form-field >
+        <textarea matInput placeholder="標題" [(ngModel)]="toDoItem.title" name="title" required
+          #title="ngModel" >
+        </textarea>
+        <mat-error *ngIf="title.errors?.required">標題為必填</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field >
+        <textarea matInput placeholder="內容" [(ngModel)]="toDoItem.content" name="content" #content="ngModel"></textarea>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit"  [disabled]="!toDoForm.form.valid">儲存</button>
+  </form>
+
+</div>

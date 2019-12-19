@@ -1,0 +1,51 @@
+.sidebar_nav {
+  padding-top:20px;
+  width: 240px;
+  box-sizing: border-box;
+  height: calc(100vh - 214px);
+  background-color: #fff;
+  margin-right:30px;
+  overflow:scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width:6px;
+  }
+  &::-webkit-scrollbar-thumb {
+      background:#b5b5b5;
+      border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+      background: #949494;
+  }
+  .add {
+    display: flex;
+    justify-content: center;
+    .add_btn {
+      width:70%
+    }
+  }
+  .tabs_title {
+    margin:10px;
+  }
+  .tabs_item {
+    display: flex;
+    //background-color:#039be5;
+    border-radius: 0 20px 20px 0;
+    width: 80%;
+    color:#000;
+    padding:10px;
+    margin:10px 0;
+    &:hover {
+      background-color: #ddd;
+    }
+    &.clicked {
+      background-color: #039be5;
+      color:#fff;
+    }
+    .item_all {
+      display: inline-block;
+      margin-left:10px;
+    }
+  }
+}
+

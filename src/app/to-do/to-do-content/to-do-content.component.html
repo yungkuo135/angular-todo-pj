@@ -1,0 +1,27 @@
+<div class="todo_list_content">
+  <div *ngIf="noContent" class="noContent">
+    沒有符合的內容喔!
+  </div>
+  <div *ngIf="!noContent">
+      <div class="toDo_item" *ngFor=" let item of toDoList" [attr.itemId]="item.id" >
+          <div class="item_text" routerLink="/edit/{{item.id}}">
+              <div class="toDo_title" [ngClass]="{'done': item.done}">{{item.title}}</div>
+              <div class="toDo_content"  [ngClass]="{'done': item.done}">{{item.content}}</div>
+              <span *ngIf="item.frontend" class="toDo_tag">
+                <span  class="dots green"></span> Frontend
+              </span>
+              <span *ngIf="item.backend" class="toDo_tag">
+                <span  class="dots blue"></span> Backend
+              </span>
+              <span *ngIf="item.issue" class="toDo_tag">
+                <span  class="dots red"></span> Issue
+              </span>
+          </div>
+          <div class="item_icons">
+            <button mat-icon-button><mat-icon matTooltip="重要" [attr.itemId]="item.id" [ngClass]="{red: item.important}" (click)="triggerTag($event,'important')" >{{item.important_icon}}</mat-icon></button>
+            <button mat-icon-button><mat-icon matTooltip="優先" [attr.itemId]="item.id" [ngClass]="{yellow: item.stared}" (click)="triggerTag($event,'star')">{{item.stared_icon}}</mat-icon></button>
+            <button mat-icon-button><mat-icon matTooltip="完成"  [attr.itemId]="item.id" [ngClass]="{blue: item.done}" (click)="triggerTag($event,'done')">{{item.done_icon}}</mat-icon></button>
+          </div>
+      </div>
+  </div>
+</div>

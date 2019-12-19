@@ -1,0 +1,35 @@
+
+.todo_edit_wrapper {
+  width:calc(100vw - 390px);
+  display: flex;
+  justify-content: center;
+}
+.item_icons {
+  display: flex;
+  align-items: center;
+  mat-icon{
+    &.red {
+      color:red;
+    };
+    &.yellow {
+      color:#ffc107;
+    };
+    &.blue {
+      color:blue;
+    }
+  }
+}
+.edit_form {
+  padding:20px;
+  width:60%;
+  background-color: #fff;
+  .edit_tags {
+    margin:10px 0 }
+}
+mat-checkbox {
+  margin:10px;
+}
+
+mat-form-field {
+  width:100%;
+}

@@ -1,0 +1,51 @@
+<div class="team_chat_panel" [@toggleChatPanel]="isChatOpened? 'open':'closed'">
+    <div class="chat_header">
+        <div class="chat_icon" *ngIf="!isSelectedChat">
+            <mat-icon aria-hidden="true" aria-label="chat icon" (click)="toggleChat()">chat</mat-icon>
+        </div>
+        <div class="chat_info" *ngIf="isSelectedChat">
+            <img class="chat_avatar " src={{chatingAvatar}} alt="alice" >
+            <span class="chat_name">{{chattingName}}</span>
+        </div>
+        <div class="chat_close">
+            <mat-icon aria-hidden="true" aria-label="close icon" (click)="toggleChat()">close</mat-icon>
+        </div>
+
+    </div>
+    <div class="team_chat_group">
+      <div class="chat_list">
+          <div *ngFor="let chat of chatService.chatList" class="chat_member" [ngClass]="{'selected': (chattingName === chat.name) && isSelectedChat}" (click)="selectChat(chat,$event);">
+              <span *ngIf="chat.unread" class="bubble count">{{chat.unread}}</span>
+              <img class="chat_avatar" src={{chat.avatar}} alt="alice" matTooltip="{{chat.name}}"  matTooltipPosition="left">
+              <span class="bubble status" [ngClass]="{online:chat.online}"></span>
+          </div>
+      </div>
+      <div class="chat_content" #chat_content>
+        <div class="no_selected_chat" *ngIf="!isSelectedChat">
+          <mat-icon aria-hidden="true" aria-label="chat icon">chat</mat-icon>
+          <div >請選擇你的聊天訊息</div>
+        </div>
+        <div *ngFor="let line of dialog" class="chat_line_wrap" [ngClass]="{me: !line.avatar}">
+          <div class="chat_line_div">
+              <img *ngIf="line.avatar" class="chat_avatar " src={{line.avatar}} alt="{{line.name}}" >
+              <span class="chat_line">{{line.content}}</span>
+          </div>
+          <span class="line_time">{{line.time}}</span>
+        </div>
+        <div class="send_chat_div">
+          <form  (ngSubmit)="sendChat(chatForm)" #chatForm="ngForm" >
+            <mat-form-field>
+              <input matInput #chatInput name="chatInput">
+            </mat-form-field>
+            <button class="chatBTN" type="submit">
+                <mat-icon aria-hidden="true" aria-label="send icon" (click)="sendChat($event)">send</mat-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+
