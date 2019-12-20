@@ -15,11 +15,13 @@ const routes: Routes = [
   {path: 'tag/issue', component: ToDoContentComponent},
   {path: 'edit/:id', component: ToDoEditComponent},
   {path: 'new', component: ToDoEditComponent},
-
+  // {path: 'search', component: ToDoContentComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

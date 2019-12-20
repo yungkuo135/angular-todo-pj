@@ -18,9 +18,9 @@
               </span>
           </div>
           <div class="item_icons">
-            <button mat-icon-button><mat-icon matTooltip="重要" [attr.itemId]="item.id" [ngClass]="{red: item.important}" (click)="triggerTag($event,'important')" >{{item.important_icon}}</mat-icon></button>
-            <button mat-icon-button><mat-icon matTooltip="優先" [attr.itemId]="item.id" [ngClass]="{yellow: item.stared}" (click)="triggerTag($event,'star')">{{item.stared_icon}}</mat-icon></button>
-            <button mat-icon-button><mat-icon matTooltip="完成"  [attr.itemId]="item.id" [ngClass]="{blue: item.done}" (click)="triggerTag($event,'done')">{{item.done_icon}}</mat-icon></button>
+            <button mat-icon-button><mat-icon matTooltip="重要" [attr.itemId]="item.id" [ngClass]="{red: item.important}" (click)="triggerTag($event,'important',item)" >{{item.important_icon}}</mat-icon></button>
+            <button mat-icon-button><mat-icon matTooltip="優先" [attr.itemId]="item.id" [ngClass]="{yellow: item.stared}" (click)="triggerTag($event,'star',item)">{{item.stared_icon}}</mat-icon></button>
+            <button mat-icon-button><mat-icon matTooltip="完成"  [attr.itemId]="item.id" [ngClass]="{blue: item.done}" (click)="triggerTag($event,'done',item)">{{item.done_icon}}</mat-icon></button>
           </div>
       </div>
   </div>

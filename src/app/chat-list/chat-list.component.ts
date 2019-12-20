@@ -28,10 +28,9 @@ export class ChatListComponent implements OnInit {
   public chatList: Array<any>;
   public isChatOpened = false;
   public isSelectedChat = false;
-  public chatingAvatar;
-  public chattingName;
-  public chatHistory;
-  // public isSelected;
+  public chatingAvatar: string;
+  public chattingName: string;
+  public chatHistory: string;
   public me = false;
   public dialog: Array<any> = [];
 
@@ -78,31 +77,23 @@ export class ChatListComponent implements OnInit {
       const name = line.split('|')[0];
       const content = line.split('|')[1];
       const timestamp = parseInt(line.split('|')[2], 10);
-      let avatar = line.split('|')[3];
-      let time;
-      if ( name === 'Yung' ) {
-        avatar = null;
-      }
-      time = new Date(timestamp).toLocaleString();
+      const avatar =  name === 'Yung' ? null : line.split('|')[3];
+      const time = new Date(timestamp).toLocaleString();
       this.dialog.push({name, content, time, avatar});
     }
   }
 
   sendChat(event) {
 
-    let name, content, time, updatedChat;
-    const _this = this;
-    content = this.chatInput.nativeElement.value;
-    time = new Date().getTime();
+    const content = this.chatInput.nativeElement.value;
+    const time = new Date().getTime();
 
     if (content === '') { return; }
-    // chatList = this.chatService.chatList;
-
 
     this.chatService.updateChat(this.chattingName, content, time);
 
-    updatedChat = this.chatService.chatList.filter( (eachChat) => {
-      return eachChat.name === _this.chattingName;
+    const updatedChat = this.chatService.chatList.filter( (eachChat) => {
+      return eachChat.name === this.chattingName;
     });
 
 

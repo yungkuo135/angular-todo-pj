@@ -15,34 +15,43 @@
 .home_info {
   background-color: #36667d;
   width:100vw;
-  height:150px;
+  max-width: 100%;
   color:#fff;
   box-sizing: border-box;
   padding:10px 0 10px 10px;
+  .header_avatar {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    margin-right:10px;
+  }
   .info_text{
     font-size:30px;
   }
   .info_title{
     display:flex;
     align-items:center;
+    width:270px;
+    mat-icon{
+      padding:10px;
+    }
   }
   .search_section {
-    margin-left: 270px;
-    margin-top:20px;
     .search_bar {
       display:flex;
       align-items: center;
       color:#000;
       box-sizing:border-box;
-      padding:10px;
-      height:40px;
-      width:calc(100vw - 390px);
+      padding:5px;
+      height:30px;
+      width:calc(100vw - 600px);
       background: #fff;
       border-radius: 20px;
+      margin-right:60px;
       box-shadow:0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) ;
       .search_icon {
-        cursor: pointer;
-        padding-right:5px;
+        border-radius: 100px;
+        margin-right:5px;
       }
     }
   }

@@ -2,7 +2,7 @@
   padding-top:20px;
   width: 240px;
   box-sizing: border-box;
-  height: calc(100vh - 214px);
+  height: calc(100vh - 64px);
   background-color: #fff;
   margin-right:30px;
   overflow:scroll;
@@ -23,6 +23,9 @@
     .add_btn {
       width:70%
     }
+  }
+  .tabs_all {
+    cursor: pointer;
   }
   .tabs_title {
     margin:10px;

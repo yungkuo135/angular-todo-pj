@@ -4,7 +4,7 @@
   border: 1px rgba(0,0,0,.12) solid;
   overflow: scroll;
   overflow-x: hidden;
-  height: calc(100vh - 214px);
+  height: calc(100vh - 64px);
   &::-webkit-scrollbar {
     width:6px;
   }
@@ -27,7 +27,14 @@
   display: flex;
   cursor: pointer;
   padding:16px 16px 16px 24px;
+  border: 1px ;
+  border: 1px transparent solid;
   border-bottom: 1px rgba(0,0,0,.12) solid;
+  justify-content: space-between;
+  &:hover {
+    border: 1px  rgba(0,0,0,0.2) solid;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2);
+  }
   .item_text {
     width:80%;
     .toDo_title {
@@ -42,6 +49,8 @@
     }
     .toDo_content{
       padding-bottom:15px;
+      color:#505050;
+      font-size:15px;
       &.done {
         text-decoration: line-through;
         color:rgba(0,0,0,.3);

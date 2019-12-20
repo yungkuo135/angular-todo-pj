@@ -6,50 +6,26 @@
   <div class="tabs_all">
     <a [routerLink]="['/all']" (click)="this.clickedTag = 'all'" >
       <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'all'}" matRipple>
-        <mat-icon aria-hidden="true" aria-label="view_headline icon" >view_headline</mat-icon>
+        <mat-icon>view_headline</mat-icon>
         <span class="item_all">全部</span>
       </div>
    </a>
   </div>
   <div class="tabs_fliters">
     <div class="tabs_title">篩選</div>
-    <a [routerLink]="['/filter/stared']" (click)="this.clickedTag = 'star'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'star'}" matRipple>
-          <mat-icon aria-hidden="true" aria-label=" icon" >star</mat-icon>
-          <span class="item_all">優先</span>
-      </div>
-    </a>
-    <a [routerLink]="['/filter/important']" (click)="this.clickedTag = 'important'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'important'}" matRipple>
-          <mat-icon aria-hidden="true" aria-label=" icon" >error</mat-icon>
-          <span class="item_all">重要</span>
-      </div>
-    </a>
-    <a [routerLink]="['/filter/done']" (click)="this.clickedTag = 'done'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'done'}" matRipple>
-          <mat-icon aria-hidden="true" aria-label="check icon" >check</mat-icon>
-          <span class="item_all">完成</span>
+    <a *ngFor="let tag of filterTags" [routerLink]="['/filter/',tag.name]" (click)="this.clickedTag = tag.name"  >
+      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === tag.name}" matRipple>
+          <mat-icon >{{tag.iconName}}</mat-icon>
+          <span class="item_all">{{tag.tag}}</span>
       </div>
     </a>
   </div>
   <div class="tabs_tags">
     <div class="tabs_title">標籤</div>
-    <a [routerLink]="['/tag/frontend']" (click)="this.clickedTag = 'frontend'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'frontend'}" matRipple>
-        <mat-icon aria-hidden="true" aria-label=" icon" style="color:#388e3c">label_outline</mat-icon>
-        <span class="item_all">Frontend</span>
-      </div>
-    </a>
-    <a [routerLink]="['/tag/backend']" (click)="this.clickedTag = 'backend'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'backend'}" matRipple>
-        <mat-icon aria-hidden="true" aria-label=" icon" style="color:#0091ea">label_outline</mat-icon>
-        <span class="item_all">Backend</span>
-      </div>
-    </a>
-    <a [routerLink]="['/tag/issue']" (click)="this.clickedTag = 'issue'"  >
-      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === 'issue'}" matRipple>
-        <mat-icon aria-hidden="true" aria-label=" icon" style="color:#f44336">label_outline</mat-icon>
-        <span class="item_all">Issue</span>
+    <a *ngFor="let tag of labelTags" [routerLink]="['/tag/',tag.name]" (click)="this.clickedTag = tag.name"  >
+      <div class="tabs_item" [ngClass]="{'clicked': this.clickedTag === tag.name}" matRipple>
+        <mat-icon [style.color]="tag.iconColor">{{tag.iconName}}</mat-icon>
+        <span class="item_all">{{tag.name|titlecase}}</span>
       </div>
     </a>
   </div>

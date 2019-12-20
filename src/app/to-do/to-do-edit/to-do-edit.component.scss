@@ -3,6 +3,8 @@
   width:calc(100vw - 390px);
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 300px;
 }
 .item_icons {
   display: flex;
@@ -24,7 +26,11 @@
   width:60%;
   background-color: #fff;
   .edit_tags {
-    margin:10px 0 }
+    margin:10px 0
+  }
+  .content_input{
+    height:150px;
+  }
 }
 mat-checkbox {
   margin:10px;

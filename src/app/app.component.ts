@@ -1,6 +1,6 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { ToDoService } from './to-do/to-do.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,23 +9,23 @@ import { ToDoService } from './to-do/to-do.service';
 
 export class AppComponent {
 
-  constructor(public toDoservice: ToDoService) { }
+  constructor(public toDoservice: ToDoService,
+              private router: Router) { }
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
 
   }
   search(event) {
-   let titleResult, contentResult;
 
-   console.log(this.toDoservice.toDoList);
-
-   titleResult = this.toDoservice.toDoList.filter( item => {
+   const result = this.toDoservice.toDoList.filter( item => {
      // tslint:disable-next-line:max-line-length
-     return (item.title.indexOf(event.currentTarget.nextElementSibling.value) > -1) || (item.content.indexOf(event.currentTarget.nextElementSibling.value) > -1);
+     return (item.title.indexOf(event.value.searchText) > -1) || (item.content.indexOf(event.value.searchText) > -1);
    });
 
-   this.toDoservice.updateSearched(titleResult);
+   this.toDoservice.updateSearched(result);
+
   }
+
 
 
 }

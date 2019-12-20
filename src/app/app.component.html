@@ -1,18 +1,18 @@
-<mat-toolbar class="header">Yung Kuo
+<!-- <mat-toolbar class="header">Yung Kuo
   <span style="display:flex"><img class="header_avatar" src="assets/Blair.jpg" alt="user"></span>
-</mat-toolbar>
-<div class="home_info" >
-  <span class="info_text">Welcome back, Yung!</span>
-  <div class="search_section">
-      <div class="search_bar">
-        <mat-icon class="search_icon" (click)="search($event)">search</mat-icon>
-        <input matInput type="text" placeholder="輸入並點擊搜尋鈕以搜尋內容">
-      </div>
-  </div>
+</mat-toolbar> -->
+<mat-toolbar class="home_info" >
   <div class="info_title">
-      <mat-icon>check_box</mat-icon> 代辦事項
-    </div>
-</div>
+      <mat-icon>calendar_today</mat-icon> 待辦事項
+  </div>
+  <form class="search_section" (ngSubmit)="search(searchForm)" #searchForm="ngForm">
+      <div class="search_bar" >
+          <button class="search_icon" mat-button type="submit" ><mat-icon >search</mat-icon></button>
+        <input ngModel matInput type="text" name="searchText" #searchText="ngModel" placeholder="輸入文字以搜尋內容">
+      </div>
+  </form>
+  <span style="display:flex;align-items: center;"><img class="header_avatar" src="assets/Blair.jpg" alt="user">Yung Kuo</span>
+</mat-toolbar>
 <div class="wrapper">
     <app-to-do-sidebar></app-to-do-sidebar>
     <router-outlet></router-outlet>

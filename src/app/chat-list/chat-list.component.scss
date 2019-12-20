@@ -114,7 +114,7 @@ mat-icon[aria-label ~="close"] {
 .chat_content {
   width:291px;
   overflow: scroll;
-  height:calc(100vh - 160px);
+  height:calc(100vh - 150px);
   background-color: #fff;
   overflow-x: hidden;
   &::-webkit-scrollbar {

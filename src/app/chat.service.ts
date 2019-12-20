@@ -29,10 +29,9 @@ export class ChatService {
         unread: 0,
         avatar: 'assets/Arnold.jpg',
                 // tslint:disable-next-line: max-line-length
-        chat:  ['Alice|你好啊|1575166257000|assets/Alice.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Alice.jpg',
-                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Arnold.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg']
+        chat:  ['Alice|你好啊|1575166257000|assets/Arnold.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Arnold.jpg',
+                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Arnold.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Arnold.jpg'
+                ]
       },
       {
         id: 1,
@@ -41,34 +40,28 @@ export class ChatService {
         unread: 5,
         avatar: 'assets/Barrera.jpg',
                 // tslint:disable-next-line: max-line-length
-        chat:  ['Alice|你好啊|1575166257000|assets/Alice.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Alice.jpg',
-                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Arnold.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg']
+        chat:  ['Alice|你好啊|1575166257000|assets/Barrera.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Barrera.jpg',
+                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Barrera.jpg']
       },
       {
         id: 1,
-        name: 'Blair',
+        name: 'Copeland',
         online: 1,
         unread: 1,
-        avatar: 'assets/Blair.jpg',
+        avatar: 'assets/Copeland.jpg',
                 // tslint:disable-next-line: max-line-length
-        chat:  ['Alice|你好啊|1575166257000|assets/Alice.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Alice.jpg',
-                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Arnold.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg']
+        chat:  ['Alice|你好啊|1575166257000|assets/Copeland.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Alice.jpg',
+                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Copeland.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Copeland.jpg']
       },
       {
         id: 1,
         name: 'Adam',
         online: 1,
         unread: 3,
-        avatar: 'assets/Alice.jpg',
+        avatar: 'assets/Harper.jpg',
                 // tslint:disable-next-line: max-line-length
-        chat:  ['Alice|你好啊|1575166257000|assets/Alice.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Alice.jpg',
-                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Arnold.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg'
-                , 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Alice.jpg']
+        chat:  ['Alice|你好啊|1575166257000|assets/Harper.jpg', 'Alice|上次提到的事情不知道如何呢?|1575166265000|assets/Harper.jpg',
+                'Yung|HI 你好啊 還不錯啊 你呢?|1575166280000|assets/Harper.jpg', 'Alice|也還可以囉 有件事想請你幫忙|1575166295000|assets/Harper.jpg']
       },
 
     ];
