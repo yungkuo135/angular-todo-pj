@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { filterTags, labelTags } from 'src/app/model';
 
 @Component({
   selector: 'app-to-do-sidebar',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
 export class ToDoSidebarComponent implements OnInit {
 
   public clickedTag: string ;
-  public filterTags: Array<any>;
-  public labelTags: Array<any>;
+  public filterTags: filterTags[];
+  public labelTags: labelTags[];
 
   constructor( private router: Router) { }
 
   ngOnInit() {
+    this.clickedTag = 'all'
     this.filterTags = [
       {
         name: 'stared',
@@ -37,7 +39,6 @@ export class ToDoSidebarComponent implements OnInit {
         name: 'frontend',
         iconColor: '#388e3c',
         iconName: 'label_outline'
-
       },
       {
         name: 'backend',

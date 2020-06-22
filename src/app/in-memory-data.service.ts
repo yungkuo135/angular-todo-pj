@@ -1,15 +1,17 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
+import { toDoList } from './model'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class InMemoryDataService implements InMemoryDbService {
 
   constructor() { }
 
   createDb() {
-    const toDoList = [
+    const toDoList:toDoList[] = [
         {
           id: '1',
           title: '一的長不路的',

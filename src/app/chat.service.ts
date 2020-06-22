@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { chatList } from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class ChatService {
 
   constructor() { }
 
-  chatList = [
+  chatList:chatList[] = [
       {
         id: 1,
         name: 'Alice',
@@ -66,7 +67,7 @@ export class ChatService {
 
     ];
 
-    updateChat(name, content, time) {
+    updateChat(name:string, content:string, time:number) {
 
     for (const eachChat of this.chatList) {
         if ( name === eachChat.name ) {

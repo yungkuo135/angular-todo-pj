@@ -11,14 +11,12 @@ export class AppComponent {
 
   constructor(public toDoservice: ToDoService,
               private router: Router) { }
-  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
 
   }
   search(event) {
 
    const result = this.toDoservice.toDoList.filter( item => {
-     // tslint:disable-next-line:max-line-length
      return (item.title.indexOf(event.value.searchText) > -1) || (item.content.indexOf(event.value.searchText) > -1);
    });
 

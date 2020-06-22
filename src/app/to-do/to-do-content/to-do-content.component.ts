@@ -3,6 +3,7 @@ import { ToDoService } from '../to-do.service';
 import { ActivatedRoute, Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { toDoListWithIcons } from 'src/app/model';
 
 @Component({
   selector: 'app-to-do-content',
@@ -38,7 +39,7 @@ export class ToDoContentComponent implements OnInit, OnDestroy {
       this.toDoList = res;
     });
 
-    this.toDoService.updateSearched$.subscribe((items: any) => {
+    this.toDoService.updateSearched$.subscribe((items:toDoListWithIcons[]) => {
       if ( items && items.length ) {
         this.noContent = false;
         this.toDoList = items;
@@ -48,7 +49,7 @@ export class ToDoContentComponent implements OnInit, OnDestroy {
     });
   }
 
-  triggerTag(event, tag, item) {
+  triggerTag(event, tag:string, item) {
 
     const icon = event.currentTarget;
 

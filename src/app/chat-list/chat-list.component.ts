@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state , style, animate, transition } from '@angular/animations';
 import { ChatService } from '../chat.service';
+import { chatList } from '../model';
 
 @Component({
   selector: 'app-chat-list',
@@ -53,12 +54,11 @@ export class ChatListComponent implements OnInit {
     }
   }
 
-  selectChat( chat, event) {
+  selectChat( chat:chatList, event) {
     if (!this.isSelectedChat && !this.isChatOpened) {
       this.toggleChat();
     }
     chat.unread = 0;
-
     this.dialog = [];
     this.isSelectedChat = true;
     this.chatingAvatar = chat.avatar;
@@ -71,7 +71,7 @@ export class ChatListComponent implements OnInit {
     }, 0);
   }
 
-  processChat(chatHistory) {
+  processChat(chatHistory:string[]) {
     this.dialog = [];
     for (const line of chatHistory ) {
       const name = line.split('|')[0];

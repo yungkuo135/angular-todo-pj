@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { tap, map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { toDoListWithIcons, toDoList } from '../model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,29 +17,30 @@ export class ToDoService {
   constructor(private http: HttpClient) { }
 
   private listUrl = 'api/toDoList';
-  public toDoList: any;
+  public toDoList:toDoListWithIcons[];
 
-  getToDoList(request, detail?): Observable<any> {
-    return this.http.get<any>(this.listUrl)
+  getToDoList(request:string, detail?:string): Observable<any> {
+    return this.http.get<toDoListWithIcons[]>(this.listUrl)
       .pipe(
         map( (items) => {
-          this.toDoList = items.reverse();
-          for ( const item of this.toDoList ) {
+          const toDoListData = items.reverse();
+          for ( const item of toDoListData ) {
             item.important_icon = item.important ? 'error' : 'error_outline';
             item.stared_icon = item.stared ? 'star' : 'star_border';
             item.done_icon = item.done ? 'check_box' : 'crop_square';
           }
+          this.toDoList = toDoListData;
           if ( request === 'all') {
             return this.toDoList;
           } else {
-            return this.getFilterData( detail);
+            return this.getFilterData(detail);
           }
         })
       );
   }
 
 
-  getFilterData(detail) {
+  getFilterData(detail:string) {
     const matchFilter = this.toDoList.filter( (item) => {
       return item[ `${detail}`] === 1 || item[ `${detail}`] === true;
     });
@@ -46,17 +48,17 @@ export class ToDoService {
     return this.toDoList = matchFilter;
   }
 
-  getToDoItem(id) {
+  getToDoItem(id:string) {
     return this.getSelectedItem(this.toDoList, id);
   }
 
-  getSelectedItem(list, id) {
+  getSelectedItem(list:toDoListWithIcons[], id:string) {
     return  list.filter( (item) => {
       return item.id === id;
     });
   }
 
-  addToDoItem( item ): Observable<any> {
+  addToDoItem( item:toDoList): Observable<any> {
     const latestId = this.toDoList[0].id;
     item.id = (parseInt(latestId, 10) + 1).toString();
     item.content = item.content || '';
@@ -69,11 +71,11 @@ export class ToDoService {
     return this.http.post(this.listUrl, item, httpOptions);
   }
 
-  updateToDoItem(item): Observable<any> {
+  updateToDoItem(item:toDoList): Observable<any> {
     return this.http.put(this.listUrl, item, httpOptions);
   }
 
-  updateSearched(items) {
+  updateSearched(items:toDoListWithIcons[]) {
     this.updateSearched$.next(items);
   }
 
